@@ -1,0 +1,24 @@
+var originalXs = [];
+var originalYs = [];
+
+function onStep(curStep)
+{
+
+        PlayState.instance.boyfriend.animation.play('hey', true);
+}
+
+function onUpdate(elapsed)
+{
+    var currentBeat = (songPosition / 1000) * (bpm/60);
+    var curStep = Std.int(Conductor.songPosition / Conductor.stepCrochet);
+
+    if (originalYs.length > 0 && difficulty == 2 && curStep > 400)
+    {
+        for (note in strumLineNotes.members)
+        {         
+            var i = strumLineNotes.members.indexOf(note);
+            note.x = originalXs[i] + 32 * Math.sin((currentBeat + i*0.25) * Math.PI);
+            note.y = originalYs[i] + 32 * Math.cos((currentBeat + i*0.25) * Math.PI);
+        }
+   }
+}

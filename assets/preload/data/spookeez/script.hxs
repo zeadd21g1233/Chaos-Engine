@@ -1,0 +1,38 @@
+function onCreate() 
+{
+//Okay THis Have No Use
+PlayState.instance.defaultCamZoom = 1.05;
+
+}
+
+// Script!! 
+function onStep(curStep) // i know This Shit Code But its Works 8-8
+{
+        switch(curStep)
+        { 
+        case 156:
+        dad.animation.play('hey', true);
+        dad.specialAnim = true;
+
+        
+        case 412:
+        dad.animation.play('hey', true);
+        dad.specialAnim = true;
+
+        case 576:
+        PlayState.instance.defaultCamZoom = 1.5;
+
+        case 704:
+        PlayState.instance.defaultCamZoom = 1.05;
+        }
+}
+
+//function opponentNoteHit(daNote)
+//{
+
+//if (PlayState.instance.health > 0.3)
+//{
+//PlayState.instance.health -= 0.1;
+//}
+
+//}

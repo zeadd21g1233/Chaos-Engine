@@ -1,0 +1,88 @@
+var DebugModeBF:Bool = false;
+var DebugModeDAD:Bool = false;
+
+var OriginalBFX:Float = 900;
+var OriginalBFY:Float = 440;
+
+var OriginalDADY:Float = 310;
+var OriginalDADX:Float = 330;
+
+function onCreatePost()
+{
+dad.x = 330;
+dad.y = 310;
+boyfriend.x = 900;
+boyfriend.y = 440;
+PlayState.gf.y = -60;
+}
+
+function onUpdate(elapsed)
+{
+
+       if (DebugModeBF == true)
+       {
+
+          if (FlxG.keys.justPressed.A)
+          {
+          boyfriend.x -= 10;
+          OriginalBFX -= 10;
+          trace('BFX ' + boyfriend.x);
+          }
+
+          if (FlxG.keys.justPressed.D)
+          {
+          boyfriend.x += 10;
+          OriginalBFX += 10;
+          trace('BFX ' + boyfriend.x);
+          }
+
+          if (FlxG.keys.justPressed.W)
+          {
+          boyfriend.y -= 10;
+          OriginalBFY -= 10;
+          trace('BFY ' + boyfriend.y);
+          }
+
+          if (FlxG.keys.justPressed.S)
+          {
+          boyfriend.y += 10;
+          OriginalBFY += 10;
+          trace('BFY ' + boyfriend.y);
+          }
+
+       }
+       if (DebugModeDAD == true)
+       {
+
+          if (FlxG.keys.justPressed.A)
+          {
+          dad.x -= 10;
+          OriginalDADX -= 10;
+          trace('DADX ' + dad.x);
+          }
+
+          if (FlxG.keys.justPressed.D)
+          {
+          dad.x += 10;
+          OriginalDADX += 10;
+          trace('DADX ' + dad.x);
+          }
+
+          if (FlxG.keys.justPressed.W)
+          {
+          dad.y -= 10;
+          OriginalDADY -= 10;
+          trace('DADY ' + dad.y);
+          }
+
+          if (FlxG.keys.justPressed.S)
+          {
+          dad.y += 10;
+          OriginalDADY += 10;
+          trace('DADY ' + dad.y);
+          }
+       
+       }
+
+
+}  

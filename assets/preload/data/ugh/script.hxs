@@ -1,0 +1,8 @@
+function onCreatePost()
+{
+dad.x = 300;
+dad.y = 300;
+boyfriend.x = 1000;
+gf.y = 65;
+}
+
