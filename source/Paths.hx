@@ -22,6 +22,7 @@ using StringTools;
 class Paths
 {
 	inline public static var SOUND_EXT = #if web "mp3" #else "ogg" #end;
+	inline public static var VIDEO_EXT = "mp4";
 
 	static var currentLevel:String;
 	public static var currentMod:Null<String>;
@@ -149,6 +150,12 @@ class Paths
 	{
                 return getPath('data/$key.hxs', TEXT, library);
 	}
+
+	static public function video(key:String)
+	{
+		return 'assets/videos/$key.$VIDEO_EXT';
+	}
+
 
 	static public function module(key:String, ?library:String):String
 	{

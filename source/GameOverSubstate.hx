@@ -14,6 +14,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	var stageSuffix:String = "";
 
+	var playingDeathSound:Bool = false;
+
+
 	public function new(x:Float, y:Float)
 	{
 		var daStage = PlayState.curStage;
@@ -23,6 +26,8 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'bfpixel':
 				stageSuffix = '-pixel';
 				daBf = 'bfpixel-dead';
+                        case 'bf-holding-gf':
+				daBf = 'bf-holding-gf-dead';
 			default:
 				daBf = 'bf';
 		}
@@ -73,9 +78,27 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.follow(camFollow, LOCKON, 0.01);
 		}
 
-		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished)
+		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.finished && !playingDeathSound)
 		{
-			FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
+				if (PlayState.SONG.stage == 'tank')
+				{
+					playingDeathSound = true;
+					FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix), 0.2);
+					
+					var exclude:Array<Int> = [];
+					//if(!ClientPrefs.cursing) exclude = [1, 3, 8, 13, 17, 21];
+
+					FlxG.sound.play(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, exclude)), 1, false, null, true, function() {
+						if(!isEnding)
+						{
+							FlxG.sound.music.fadeIn(0.2, 1, 4);
+						}
+					});
+				}
+				else
+				{
+					FlxG.sound.playMusic(Paths.music('gameOver' + stageSuffix));
+				}		
 		}
 
 		if (FlxG.sound.music.playing)

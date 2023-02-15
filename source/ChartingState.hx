@@ -37,6 +37,11 @@ import openfl.media.Sound;
 import openfl.net.FileReference;
 import openfl.utils.ByteArray;
 
+import haxe.ds.StringMap;
+import openfl.utils.Assets as OpenFlAssets;
+import script.ScriptHandler;
+import script.ScriptHandler.ForeverModule;
+
 using StringTools;
 
 class ChartingState extends MusicBeatState
@@ -65,7 +70,7 @@ class ChartingState extends MusicBeatState
 	var bullshitUI:FlxGroup;
 	var writingNotesText:FlxText;
 
-	public static var noteTypeList:Array<String> = 
+	public var noteTypeList:Array<String> = 
 	[
 		'normal',
 		'Warning',
@@ -73,7 +78,7 @@ class ChartingState extends MusicBeatState
 	];
 
         var noteStyle:Int = 0;
-        var styles:Array<String> = ['normal', 'Warning', 'Alt'];  //You Should add your Note Name Here and in noteTypeList Yes I Know This Shit But It Works
+        public var styles:Array<String> = ['normal', 'Warning', 'Alt'];  //You Should add your Note Name Here and in noteTypeList Yes I Know This Shit But It Works
 
         var noteTypeText:FlxText;
          
@@ -110,6 +115,8 @@ class ChartingState extends MusicBeatState
 	var claps:Array<Note> = [];
 
 	public var snapText:FlxText;
+
+        var HscriptNoteType:ForeverModule;
 
 	override function create()
 	{
