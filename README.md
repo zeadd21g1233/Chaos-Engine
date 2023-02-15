@@ -1,5 +1,5 @@
 ﻿
-![Kade Engine logo](assets/preload/images/KadeEngineLogo.png)
+![Chaos Engine logo](assets/preload/images/ChaosEngineLogo.png)
 
 
 
