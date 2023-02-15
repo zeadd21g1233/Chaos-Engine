@@ -22,7 +22,7 @@
  - [Kawai Sprite](https://twitter.com/kawaisprite) - Music
 
 This game was made with love to Newgrounds and its community. Extra love to Tom Fulp.
-### Kade Engine
+### Chaos Engine
 - [Zead](https://github.com/KadeDev/Kade-Engine/graphs/contributors) - programmer
 - [Based Kade Engie 1.5.4](https://twitter.com/KadeDeveloper) - Own Kade engine engine 
 
